@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium 4 POC Tests ">
+	<suite-files>
+		<suite-file path="testngsuite.xml" />
+	</suite-files>
+</suite> 
