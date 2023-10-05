@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "46ef7ab0-f7da-4366-9db5-1fe06597f4ea",
+		"name": "CapstoneBasicPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17978761"
+	},
+	"item": [
+		{
+			"name": "VerifyCurrency",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var data = pm.iterationData.get(\"currency\");\r",
+							"pm.environment.set(\"currency\", data);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var currency = pm.variables.get(\"currency\");\r",
+							"pm.test(\"Verify Status code\" +currency, function () {\r",
+							"    if(currency == 'INR'){\r",
+							"        pm.response.to.have.status(200);\r",
+							"    }else{\r",
+							"        pm.response.to.have.status(404);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate response against saved 'name' value\", function() {\r",
+							"    if(currency == 'INR'){\r",
+							"        var responseBody = pm.response.json();\r",
+							"        var responseName = responseBody[0].name.common;\r",
+							"        pm.expect(responseName).to.equal('India');\r",
+							"    }else{\r",
+							"        var responseBody = pm.response.json();\r",
+							"        var responseName = responseBody.message;\r",
+							"        pm.expect(responseName).to.equal('Not Found');\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test([\"Verify Capital contains array element\"], function(){\r",
+							"    if(currency == 'INR'){\r",
+							"\t    pm.expect(['New Delhi']).to.be.an('array').that.is.not.empty\r",
+							"    } \r",
+							"})\r",
+							"\r",
+							"pm.test([\"Verify Border contains array element\"], function(){\r",
+							"    if(currency == 'INR'){\r",
+							"\t    pm.expect([\"BGD\", \"BTN\", \"MMR\", \"CHN\", \"NPL\", \"PAK\"]).to.be.an('array').that.is.not.empty\r",
+							"    }  \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://restcountries.com/v3.1/currency/{{currency}}"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Currency",
+			"value": "data"
+		}
+	]
+}

@@ -1,0 +1,82 @@
+{
+	"id": "792080a2-e276-4a27-b9da-7019aa7edff3",
+	"name": "CapstoneBasicPostman",
+	"timestamp": "2023-10-05T18:15:40.755Z",
+	"collection_id": "17978761-46ef7ab0-f7da-4366-9db5-1fe06597f4ea",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 8,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-10-05T18:15:39.147Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "77c608db-72b4-46a6-8903-8d8380a0aa3c",
+			"name": "VerifyCurrency",
+			"url": "https://restcountries.com/v3.1/currency/XYZ",
+			"time": 90,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Verify Status codeXYZ": true,
+				"Validate response against saved 'name' value": true,
+				"Verify Capital contains array element": true,
+				"Verify Border contains array element": true
+			},
+			"testPassFailCounts": {
+				"Verify Status codeINR": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate response against saved 'name' value": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Verify Capital contains array element": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Verify Border contains array element": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Verify Status codeXYZ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				276,
+				90
+			],
+			"allTests": [
+				{
+					"Verify Status codeINR": true,
+					"Validate response against saved 'name' value": true,
+					"Verify Capital contains array element": true,
+					"Verify Border contains array element": true
+				},
+				{
+					"Verify Status codeXYZ": true,
+					"Validate response against saved 'name' value": true,
+					"Verify Capital contains array element": true,
+					"Verify Border contains array element": true
+				}
+			]
+		}
+	],
+	"count": 2,
+	"totalTime": 366,
+	"collection": {
+		"requests": [
+			{
+				"id": "77c608db-72b4-46a6-8903-8d8380a0aa3c",
+				"method": "GET"
+			}
+		]
+	}
+}
